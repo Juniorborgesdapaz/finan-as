@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-login {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(44, 5, 44);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login {
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-login h1 {
+    color: aliceblue;
+    margin-bottom: 20px;
+}
+
+.right-login {
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-login {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background-color: rgb(91, 13, 91);
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px black;
+}
+
+.card-login > h1 {
+    color: aliceblue;
+    font-weight: 800;
+    margin: 0;
+}
+
+.textfield {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.textfield > input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px black;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield > label {
+    color: white;
+    margin: 10px 0px;
+}
+
+.textfield > input::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.botao {
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: rgb(80, 20, 80);
+    box-shadow: 0px 10px 40px -12px;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+
+}
+.imagem {
+    width: 30vw;
+}
+
+/* Media query para telas com largura máxima de 950px */
+@media only screen and (max-width: 950px) {
+    .card-login {
+        width: 85%;
+    }
+}
+
+/* Media query para telas com largura máxima de 600px */
+@media only screen and (max-width: 600px) {
+    .main-login {
+        flex-direction: column;
+    }
+
+    .left-login h1 {
+        display: none;
+    }
+
+    .left-login {
+        width: 100%;
+        height: auto;
+    }
+
+    .right-login {
+        width: 100%;
+        height: auto;
+    }
+
+    .left-login .imagem {
+        width: 50vw;
+    }
+
+    .card-login {
+        width: 90%;
+    }
+}
+
+/* Media query para telas com largura máxima de 400px */
+@media only screen and (max-width: 400px) {
+    .imagem {
+        width: 70vw;
+    }
+
+    .textfield > input {
+        font-size: 10pt;
+        padding: 10px;
+    }
+
+    .botao {
+        padding: 12px 0px;
+    }
+}
