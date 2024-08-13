@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .balance-card {
+            background-color: #6a4ac7;
+            color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .balance-card h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        .balance-card p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .actions div {
+            background-color: #f9fafb;
+            border-radius: 10px;
+            padding: 15px;
+            width: 22%;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .transactions {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+
+        .transaction-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .transaction-details p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .transaction-details span {
+            font-size: 0.9rem;
+            color: #a3a3a3;
+        }
+
+        .transaction-amount {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .bottom-nav {
+            background-color: #ffffff;
+            border-top: 1px solid #ececec;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            position: sticky;
+            bottom: 0;
+        }
+
+        .bottom-nav a {
+            color: #6a4ac7;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .bottom-nav a i {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .balance-card h1 {
+                font-size: 2.5rem;
+            }
+
+            .actions div {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .transaction-item {
+                padding: 10px 0;
+            }
+
+            .bottom-nav a {
+                font-size: 1rem;
+            }
+
+            .bottom-nav a i {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .actions div {
+                padding: 8px;
+                font-size: 0.8rem;
+            }
+
+            .bottom-nav a {
+                font-size: 0.9rem;
+            }
+
+            .bottom-nav a i {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+    <!-- Importando a biblioteca de ícones Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="balance-card">
+            <h1>$25,390.50</h1>
+            <p>Available Balance</p>
+        </div>
+
+        <div class="actions">
+            <div>Send</div>
+            <div>Request</div>
+            <div>Loan</div>
+            <div>Topup</div>
+        </div>
+
+        <div class="transactions">
+            <div class="transaction-item">
+                <div class="transaction-details">
+                    <p>Groceries</p>
+                    <span>Eataly downtown</span>
+                </div>
+                <div class="transaction-amount">- $50.68</div>
+            </div>
+
+            <div class="transaction-item">
+                <div class="transaction-details">
+                    <p>Transportation</p>
+                    <span>UBER Pool</span>
+                </div>
+                <div class="transaction-amount">- $10.10</div>
+            </div>
+
+            <div class="transaction-item">
+                <div class="transaction-details">
+                    <p>Amazon</p>
+                    <span>AMAZON PRIME</span>
+                </div>
+                <div class="transaction-amount">+ $79.90</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="#">
+            <i class="fas fa-home"></i>
+            Home
+        </a>
+        <a href="#">
+            <i class="fas fa-history"></i>
+            History
+        </a>
+        <a href="#">
+            <i class="fas fa-credit-card"></i>
+            Cards
+        </a>
+        <a href="#">
+            <i class="fas fa-cog"></i>
+            Settings
+        </a>
+    </div>
+
+</body>
+
+</html>
