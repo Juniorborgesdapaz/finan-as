@@ -1,0 +1,62 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #6f42c1; /* Roxo */
+}
+
+.bg-light-purple {
+    background-color: #6f42c1; /* Roxo */
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.card {
+    border: none;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.btn-primary {
+    background-color: #5a2d81; /* Roxo escuro */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #4e227f; /* Roxo mais escuro */
+}
+
+.btn-outline-light {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #6f42c1; /* Roxo */
+}
+/* Estilos para o modo escuro */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .navbar {
+    background-color: #333333;
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+h5.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+

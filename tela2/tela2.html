@@ -1,229 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallet Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            flex: 1;
-        }
-
-        .balance-card {
-            background-color: #6a4ac7;
-            color: #fff;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .balance-card h1 {
-            margin: 0;
-            font-size: 3rem;
-        }
-
-        .balance-card p {
-            margin: 10px 0 0;
-            font-size: 1.2rem;
-        }
-
-        .actions {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .actions div {
-            background-color: #f9fafb;
-            border-radius: 10px;
-            padding: 15px;
-            width: 22%;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        .transactions {
-            margin-top: 30px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 15px;
-        }
-
-        .transaction-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            border-bottom: 1px solid #ececec;
-        }
-
-        .transaction-item:last-child {
-            border-bottom: none;
-        }
-
-        .transaction-details {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .transaction-details p {
-            margin: 0;
-            font-size: 1.1rem;
-        }
-
-        .transaction-details span {
-            font-size: 0.9rem;
-            color: #a3a3a3;
-        }
-
-        .transaction-amount {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .bottom-nav {
-            background-color: #ffffff;
-            border-top: 1px solid #ececec;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            position: sticky;
-            bottom: 0;
-        }
-
-        .bottom-nav a {
-            color: #6a4ac7;
-            text-align: center;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-
-        .bottom-nav a i {
-            display: block;
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
-            .balance-card h1 {
-                font-size: 2.5rem;
-            }
-
-            .actions div {
-                padding: 10px;
-                font-size: 0.9rem;
-            }
-
-            .transaction-item {
-                padding: 10px 0;
-            }
-
-            .bottom-nav a {
-                font-size: 1rem;
-            }
-
-            .bottom-nav a i {
-                font-size: 1.3rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .actions div {
-                padding: 8px;
-                font-size: 0.8rem;
-            }
-
-            .bottom-nav a {
-                font-size: 0.9rem;
-            }
-
-            .bottom-nav a i {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
-    <!-- Importando a biblioteca de ícones Font Awesome -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Gerenciador Financeiro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <div class="container">
-        <div class="balance-card">
-            <h1>$25,390.50</h1>
-            <p>Available Balance</p>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Meu Dinheiro</a>
+            <button class="btn btn-outline-primary" id="darkModeToggle">Modo Escuro</button>
         </div>
+    </nav>
 
-        <div class="actions">
-            <div>Send</div>
-            <div>Request</div>
-            <div>Loan</div>
-            <div>Topup</div>
-        </div>
-
-        <div class="transactions">
-            <div class="transaction-item">
-                <div class="transaction-details">
-                    <p>Groceries</p>
-                    <span>Eataly downtown</span>
+    <div class="container mt-4">
+        <!-- Seção de Saldo Inicial -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Inserir Saldo Inicial</h5>
+                        <input type="number" id="saldoInicial" class="form-control" placeholder="Digite seu saldo inicial" />
+                        <button class="btn btn-success mt-2" id="definirSaldo">Definir Saldo</button>
+                    </div>
                 </div>
-                <div class="transaction-amount">- $50.68</div>
-            </div>
-
-            <div class="transaction-item">
-                <div class="transaction-details">
-                    <p>Transportation</p>
-                    <span>UBER Pool</span>
-                </div>
-                <div class="transaction-amount">- $10.10</div>
-            </div>
-
-            <div class="transaction-item">
-                <div class="transaction-details">
-                    <p>Amazon</p>
-                    <span>AMAZON PRIME</span>
-                </div>
-                <div class="transaction-amount">+ $79.90</div>
             </div>
         </div>
+
+        <!-- Seção de Resumo Financeiro -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Saldo Atual</h5>
+                        <p id="saldoAtual" class="card-text">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Rendimentos</h5>
+                        <p id="rendimentos" class="card-text">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Despesas</h5>
+                        <p id="despesas" class="card-text">R$ 0,00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Adicionar Transação -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Adicionar Transação</h5>
+                        <form id="transactionForm">
+                            <div class="mb-3">
+                                <label for="tipo" class="form-label">Tipo de Transação</label>
+                                <select id="tipo" class="form-select">
+                                    <option value="rendimento">Rendimento</option>
+                                    <option value="despesa">Despesa</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="descricao" class="form-label">Descrição</label>
+                                <input type="text" id="descricao" class="form-control" placeholder="Ex: Salário, Compra de mercado">
+                            </div>
+                            <div class="mb-3">
+                                <label for="valor" class="form-label">Valor</label>
+                                <input type="number" id="valor" class="form-control" placeholder="Digite o valor">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Adicionar Transação</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Lista de Transações -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Transações Recentes</h5>
+                        <ul id="transaction-list" class="list-group"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Exemplo básico de gráfico com Chart.js -->
+<canvas id="myChart"></canvas>
+
     </div>
 
-    <div class="bottom-nav">
-        <a href="#">
-            <i class="fas fa-home"></i>
-            Home
-        </a>
-        <a href="#">
-            <i class="fas fa-history"></i>
-            History
-        </a>
-        <a href="#">
-            <i class="fas fa-credit-card"></i>
-            Cards
-        </a>
-        <a href="#">
-            <i class="fas fa-cog"></i>
-            Settings
-        </a>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Variáveis para armazenar o saldo, rendimentos e despesas
+        let saldoAtual = 0;
+        let rendimentos = 0;
+        let despesas = 0;
 
+        // Definir saldo inicial
+        document.getElementById('definirSaldo').addEventListener('click', function() {
+            const saldoInicial = parseFloat(document.getElementById('saldoInicial').value);
+            if (!isNaN(saldoInicial) && saldoInicial > 0) {
+                saldoAtual = saldoInicial;
+                document.getElementById('saldoAtual').textContent = `R$ ${saldoAtual.toFixed(2)}`;
+                alert('Saldo inicial definido com sucesso!');
+            } else {
+                alert('Por favor, insira um valor válido para o saldo inicial.');
+            }
+        });
+
+        // Adicionar transação
+        document.getElementById('transactionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const tipo = document.getElementById('tipo').value;
+            const descricao = document.getElementById('descricao').value;
+            const valor = parseFloat(document.getElementById('valor').value);
+
+            if (descricao && !isNaN(valor) && valor > 0) {
+                let transactionItem = document.createElement('li');
+                transactionItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+                
+                if (tipo === 'rendimento') {
+                    rendimentos += valor;
+                    saldoAtual += valor;
+                    transactionItem.textContent = `${descricao}: R$ ${valor.toFixed(2)} (Rendimento)`;
+                } else if (tipo === 'despesa') {
+                    despesas += valor;
+                    saldoAtual -= valor;
+                    transactionItem.textContent = `${descricao}: R$ ${valor.toFixed(2)} (Despesa)`;
+
+                    // Adicionar botão "Pagar Dívida" para despesas
+                    let pagarButton = document.createElement('button');
+                    pagarButton.className = 'btn btn-sm btn-outline-success ms-2';
+                    pagarButton.textContent = 'Pagar Dívida';
+                    pagarButton.addEventListener('click', function() {
+                        // Atualizar saldo e remover despesa
+                        saldoAtual += valor;
+                        despesas -= valor;
+                        document.getElementById('saldoAtual').textContent = `R$ ${saldoAtual.toFixed(2)}`;
+                        document.getElementById('despesas').textContent = `R$ ${despesas.toFixed(2)}`;
+                        transactionItem.remove();  // Remover o item da lista
+                    });
+
+                    transactionItem.appendChild(pagarButton);
+                }
+
+                // Atualizar a UI
+                document.getElementById('saldoAtual').textContent = `R$ ${saldoAtual.toFixed(2)}`;
+                document.getElementById('rendimentos').textContent = `R$ ${rendimentos.toFixed(2)}`;
+                document.getElementById('despesas').textContent = `R$ ${despesas.toFixed(2)}`;
+
+                // Adicionar transação à lista
+                document.getElementById('transaction-list').appendChild(transactionItem);
+
+                // Limpar o formulário
+                document.getElementById('transactionForm').reset();
+            } else {
+                alert('Por favor, preencha todos os campos corretamente.');
+            }
+        });
+    </script>
 </body>
-
 </html>
